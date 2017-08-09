@@ -1,0 +1,85 @@
+<html>
+<head>
+    <script src="angular.min.js"></script>
+    <link rel="stylesheet" href="design.css">
+    <script src="app.js"></script>
+     <script src="factory.js"></script>
+     <script src="costcontroller.js"></script>
+    
+</head>
+ <body>
+ <div ng-app="project"  ng-controller="costumercontroller">
+ <div class="cu">
+ <table>
+     <tr>
+        
+         <td><input type="text" placeholder="serach costumers here" ng-model="costoms.name"></td>
+     </tr>
+ </table>
+ <ul>
+     <li ng-repeat="cost in customs|filter:costoms">
+    <table>
+        <tr>
+           <td><img src="{{cost.cuspic}}"></td>
+            <td>{{cost.id}}</td>
+            <td>{{cost.name}}</td>
+        </tr>
+    </table>
+    </li>
+</ul>
+  </div>
+  
+  <div class="em">
+  <table>
+     <tr>
+         <td><input type="text" placeholder="serach employess here" ng-model="employs.name"></td>
+     </tr>
+ </table> 
+   
+   <ul>
+     <li ng-repeat="emp in employes|filter:employs">
+    <table border="2%">
+        <tr>
+           <td><img src="{{emp.emppic}}"></td>
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.address}}</td>
+        </tr>
+    </table>
+    </li>
+</ul>
+   </div> 
+   
+   <div class="pr">
+<table>
+     <tr>
+          <td> <select ng-model="sortby">
+            <option value="name" ng-selected="true">name</option>
+            <option value="id">id</option>
+            
+        </select>
+        </td>
+         <td><input type="text" placeholder="serach products here" ng-model="pros.name"></td>
+         <td><input type="checkbox"  ng-model="order" ng-checked="false"></td>
+        
+     </tr>
+ </table> 
+   
+   <ul>
+     <li ng-repeat="pro in product|filter:pros|orderBy:sortby:order">
+    <table border="2%">
+        <tr>
+           <td><img src="{{pro.propics}}"></td>
+            <td>{{pro.id}}</td>
+            <td>{{pro.name}}</td>
+            
+        </tr>
+    </table>
+    </li>
+   </ul>
+   </div>
+   
+    </div>
+    
+</body>
+</html>
